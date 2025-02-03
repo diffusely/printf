@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "printf.h"
+#include "include/ft_printf.h"
 
 int main()
 {
@@ -13,9 +13,12 @@ int main()
 
 	// ft_puthex(number, u_hex);
 	// write(1, "\n", 1);
-	char c = 'x';
-	int *ptr = NULL;
-	char str[] = "hivand es ara";
-	ft_printf("%p\n", ptr);
-	printf("%p\n", ptr);
+	char *c = "xqwe";
+
+	int *ptr = malloc(1);
+
+	//char str[] = "hivand es ara";
+	
+	printf("%p\n", -1);
+	ft_printf("%p\n", -1);
 }

@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 20:07:36 by noavetis          #+#    #+#             */
-/*   Updated: 2025/01/31 21:08:40 by noavetis         ###   ########.fr       */
+/*   Created: 2025/01/31 18:31:58 by noavetis          #+#    #+#             */
+/*   Updated: 2025/02/04 00:49:39 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-void	ft_puthex(size_t num, char hex[17])
+int	ft_printf(const char *str, ...)
 {
-	int		index;
 	int		count;
-	
-	if (num == 0)
+	va_list	args;
+
+	va_start(args, str);
+	count = 0;
+	while (*str)
 	{
-		write(1, "0", 1);
-		return ;
+		if (*str == '%')
+		{
+			str++;
+			if (*str)
+				ft_find_type(*str, args, &count);
+			else
+				break ;
+			str++;
+		}
+		else
+		{
+			write(1, str++, 1);
+			count++;
+		}
 	}
-	index = num % 16;
-	num /= 16;
-	if (num == 0)
-	{
-		write(1, &hex[index], 1);
-		return ;
-	}
-	ft_puthex(num, hex);
-	write(1, &hex[index], 1);
+	va_end(args);
+	return (count);
 }
