@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 18:31:58 by noavetis          #+#    #+#             */
-/*   Updated: 2025/02/04 19:57:28 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/02/05 00:15:59 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	ft_printf(const char *str, ...)
 				ft_find_type(*str, args, &count);
 			else
 				break ;
-			str++;
 		}
 		else
-			count += write(1, str++, 1);
+			count += write(1, str, 1);
+		str++;
 	}
 	va_end(args);
 	return (count);

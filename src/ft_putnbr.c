@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:09:14 by noavetis          #+#    #+#             */
-/*   Updated: 2025/02/04 20:28:38 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/02/04 22:14:39 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,26 @@ void	ft_unsnbr(int *count, unsigned int n)
 		ft_putnbr(count, n);
 		*count += write(1, &c, 1);
 	}
+}
+
+void	ft_puthex(size_t num, int *count, char *hex)
+{
+	int		index;
+
+	if (num == 0)
+	{
+		*count += write(1, "0", 1);
+		return ;
+	}
+	index = num % 16;
+	num /= 16;
+	if (num == 0)
+	{
+		*count += write(1, &hex[index], 1);
+		return ;
+	}
+	ft_puthex(num, count, hex);
+	*count += write(1, &hex[index], 1);
 }
 
 void	ft_putnbr(int *count, int n)

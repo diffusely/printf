@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 02:03:17 by noavetis          #+#    #+#             */
-/*   Updated: 2025/02/04 02:04:23 by noavetis         ###   ########.fr       */
+/*   Created: 2025/01/10 19:57:48 by noavetis          #+#    #+#             */
+/*   Updated: 2025/02/04 22:14:26 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-size_t	ft_putchar(char c)
+void	ft_bzero(void *s, size_t n)
 {
-	return (write(1, &c, 1));
+	unsigned char	*ptr;
+	size_t			i;
+
+	i = 0;
+	ptr = s;
+	while (i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
 }

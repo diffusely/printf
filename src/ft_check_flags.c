@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_check_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 19:57:48 by noavetis          #+#    #+#             */
-/*   Updated: 2025/02/01 20:37:44 by noavetis         ###   ########.fr       */
+/*   Created: 2025/02/05 00:26:01 by noavetis          #+#    #+#             */
+/*   Updated: 2025/02/05 00:58:31 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_check(char c)
 {
-	unsigned char	*ptr;
-	size_t			i;
-
-	i = 0;
-	ptr = s;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
+	return (c == ' ' || c == '0' || c == '-'
+		|| c == '#' || c == '.' || c == '+');
 }
