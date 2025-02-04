@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 18:31:58 by noavetis          #+#    #+#             */
-/*   Updated: 2025/02/04 19:57:28 by noavetis         ###   ########.fr       */
+/*   Created: 2025/02/04 18:54:20 by noavetis          #+#    #+#             */
+/*   Updated: 2025/02/04 20:20:20 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+size_t	ft_putstr(char *str)
 {
-	int		count;
-	va_list	args;
-
-	va_start(args, str);
-	count = 0;
-	while (*str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			if (*str)
-				ft_find_type(*str, args, &count);
-			else
-				break ;
-			str++;
-		}
-		else
-			count += write(1, str++, 1);
-	}
-	va_end(args);
-	return (count);
+	if (!str)
+		return (write(1, "(null)", 6));
+	return (write(1, str, ft_strlen(str)));
 }

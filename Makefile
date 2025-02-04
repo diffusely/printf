@@ -10,7 +10,8 @@ SRC_DIR		=	src/
 
 CC			=	cc
 
-SRC			=	$(SRC_DIR)ft_find_type.c $(SRC_DIR)ft_printf.c $(SRC_DIR)ft_puthex.c $(SRC_DIR)ft_putchar.c
+SRC			=	$(SRC_DIR)ft_find_type.c $(SRC_DIR)ft_printf.c $(SRC_DIR)ft_puthex.c $(SRC_DIR)ft_putchar.c $(SRC_DIR)ft_putstr.c \
+				$(SRC_DIR)ft_putnbr.c
 
 CFLAG		=	-Wall -Wextra -Werror -I $(INCLUDES)
 
